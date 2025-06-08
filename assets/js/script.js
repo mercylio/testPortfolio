@@ -184,41 +184,42 @@ document.querySelectorAll('[data-back-to]').forEach(button => {
 });
 
 // Handle Media Modal
-const modal = document.getElementById("media-modal");
-  const modalImg = document.getElementById("media-modal-img");
-  const modalVideo = document.getElementById("media-modal-video");
-  const modalClose = document.querySelector(".media-close");
+const modal = document.getElementById("mediaModal");
+  const overlay = document.getElementById("mediaOverlay");
+  const closeBtn = document.getElementById("closeMediaModal");
+  const modalImg = document.getElementById("modalImage");
+  const modalVideo = document.getElementById("modalVideo");
 
-  document.querySelectorAll(".project-img img, .project-img video").forEach(el => {
-    el.addEventListener("click", function (e) {
+  document.querySelectorAll(".project-img img, .project-img video").forEach(media => {
+    media.addEventListener("click", function (e) {
       e.preventDefault();
-      const src = this.getAttribute("src");
-      const isVideo = this.tagName.toLowerCase() === "video";
+      const src = media.getAttribute("src");
+      const isVideo = media.tagName.toLowerCase() === "video";
 
-      modal.style.display = "block";
+      modal.classList.add("active");
+      overlay.classList.add("active");
+
       if (isVideo) {
-        modalImg.style.display = "none";
-        modalVideo.style.display = "block";
         modalVideo.src = src;
+        modalVideo.style.display = "block";
+        modalImg.style.display = "none";
         modalVideo.play();
       } else {
-        modalVideo.style.display = "none";
-        modalImg.style.display = "block";
         modalImg.src = src;
+        modalImg.style.display = "block";
+        modalVideo.style.display = "none";
+        modalVideo.pause();
+        modalVideo.src = "";
       }
     });
   });
 
-  modalClose.onclick = function () {
-    modal.style.display = "none";
+  closeBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", closeModal);
+
+  function closeModal() {
+    modal.classList.remove("active");
+    overlay.classList.remove("active");
     modalVideo.pause();
     modalVideo.src = "";
-  };
-
-  window.onclick = function (event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
-      modalVideo.pause();
-      modalVideo.src = "";
-    }
-  };
+  }
