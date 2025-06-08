@@ -760,7 +760,7 @@
           <ul class="blog-posts-list">
 
             <li class="blog-post-item">
-              <a href="#">
+              <a href="#" data-open-page="blog-post-1">
 
                 <figure class="blog-banner-box">
                   <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
@@ -769,17 +769,17 @@
                 <div class="blog-content">
 
                   <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                    <p class="blog-category">Library Exhibition</p>
 
                     <span class="dot"></span>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                    <time datetime="2022-02-23">June 16, 2025</time>
                   </div>
 
                   <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
 
                   <p class="blog-text">
-                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+                    Preview text here...
                   </p>
 
                 </div>
@@ -788,7 +788,7 @@
             </li>
 
             <li class="blog-post-item">
-              <a href="#">
+              <a href="#" data-open-page="blog-post-2">
 
                 <figure class="blog-banner-box">
                   <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
@@ -933,6 +933,27 @@
 
       </article>
 
+
+
+      <!--
+        - BLOG TEST
+      -->
+      <article class="blog-post-detail" data-page="blog-post-1" style="display: none;">
+        <header>
+          <h2 class="h2 article-title" id="blog-post-title">Blog Title</h2>
+        </header>
+        <section class="about-text" id="blog-list-section">
+          <p>
+            This is the full content of the first blog post. It can be dynamically updated based on which post is clicked.
+          </p>
+        </section>
+
+        <button class="form-btn" id="back-to-blog" data-back-to="workflow">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+          <span>Back to Blog</span>
+        </button>
+
+      </article>
 
 
 
