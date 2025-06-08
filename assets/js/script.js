@@ -183,3 +183,42 @@ document.querySelectorAll('[data-back-to]').forEach(button => {
     });
 });
 
+// Handle Media Modal
+const modal = document.getElementById("media-modal");
+  const modalImg = document.getElementById("media-modal-img");
+  const modalVideo = document.getElementById("media-modal-video");
+  const modalClose = document.querySelector(".media-close");
+
+  document.querySelectorAll(".project-img img, .project-img video").forEach(el => {
+    el.addEventListener("click", function (e) {
+      e.preventDefault();
+      const src = this.getAttribute("src");
+      const isVideo = this.tagName.toLowerCase() === "video";
+
+      modal.style.display = "block";
+      if (isVideo) {
+        modalImg.style.display = "none";
+        modalVideo.style.display = "block";
+        modalVideo.src = src;
+        modalVideo.play();
+      } else {
+        modalVideo.style.display = "none";
+        modalImg.style.display = "block";
+        modalImg.src = src;
+      }
+    });
+  });
+
+  modalClose.onclick = function () {
+    modal.style.display = "none";
+    modalVideo.pause();
+    modalVideo.src = "";
+  };
+
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+      modalVideo.pause();
+      modalVideo.src = "";
+    }
+  };
