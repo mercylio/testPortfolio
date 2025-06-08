@@ -744,21 +744,12 @@
       <!--
        - media modal
       -->
-      <!-- Reused Modal Structure -->
-      <div class="modal-container" id="mediaModal">
-        <div class="overlay" id="mediaOverlay"></div>
-      
-        <section class="testimonials-modal" id="mediaContent">
-          <button class="modal-close-btn" id="closeMediaModal">
-            <ion-icon name="close-outline"></ion-icon>
-          </button>
-      
-          <div class="modal-img-wrapper">
-            <!-- Image or Video goes here -->
-            <img id="modalImage" src="" alt="Enlarged media" style="max-width: 100%; display: none;" />
-            <video id="modalVideo" controls style="max-width: 100%; display: none;"></video>
-          </div>
-        </section>
+      <div id="media-modal" class="media-modal">
+        <span class="media-close">&times;</span>
+        <div class="media-modal-content">
+          <img id="media-modal-img" src="" alt="" />
+          <video id="media-modal-video" controls style="display:none;"></video>
+        </div>
       </div>
 
 
