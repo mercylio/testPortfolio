@@ -183,6 +183,7 @@ document.querySelectorAll('[data-back-to]').forEach(button => {
     });
 });
 
+/*
 // Handle Media Modal
 const modal = document.getElementById("mediaModal");
   const overlay = document.getElementById("mediaOverlay");
@@ -223,3 +224,4 @@ const modal = document.getElementById("mediaModal");
     modalVideo.pause();
     modalVideo.src = "";
   }
+*/
