@@ -163,9 +163,10 @@ document.querySelectorAll('[data-open-page]').forEach(link => {
   link.addEventListener('click', 
     function(e) {
       e.preventDefault();
-      const pageId = this.getAttribute('data-open-page');
+      const targetPage = this.getAttribute('data-open-page');
+
       document.querySelectorAll('[data-page]').forEach(section => {
-        section.style.display = (section.getAttribute('data-page') === pageId) ? 'block': 'none';
+        section.style.display = (section.getAttribute('data-page') === targetPage) ? 'block': 'none';
       });
     });
 });
@@ -174,9 +175,11 @@ document.querySelectorAll('[data-open-page]').forEach(link => {
 document.querySelectorAll('[data-back-to]').forEach(button => {
   button.addEventListener('click', 
     function(){
-      const targetPage = this.getAttribute('data-back-to');
+      const target = this.getAttribute('data-back-to');
+      
       document.querySelectorAll('[data-page]').forEach(section => {
-        section.style.display = (section.getAttribute('data-page') === targetPage) ? 'block': 'none';
+        section.style.display = (section.getAttribute('data-page') === target) ? 'block': 'none';
       });
     });
 });
+
